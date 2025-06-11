@@ -1,0 +1,82 @@
+/* Center the whole app vertically and horizontally */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f5f9fc;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Input and button wrapper */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 240px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+/* Weather card */
+.weather-card {
+  background: #80bef8;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  max-width: 300px;
+}
+
+.weather-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.weather-card p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.error {
+  color: #e63946;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+body
+{
+  background-color: bisque;
+}
