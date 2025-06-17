@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 function App() {
@@ -20,11 +20,33 @@ function App() {
       const data = await res.json();
       setWeather(data);
       setError('');
+
+      // Set dynamic background based on weather type
+      const weatherMain = data.weather[0].main.toLowerCase();
+      document.body.setAttribute('data-weather', weatherMain);
     } catch (err) {
       setWeather(null);
       setError("City not found. Please try again.");
+
+      const inputEl = document.querySelector("input");
+      inputEl.classList.add("shake");
+      setTimeout(() => {
+        inputEl.classList.remove("shake");
+      }, 400);
     }
   };
+
+  // Placeholder typing animation effect
+  useEffect(() => {
+    const phrases = ["Enter city name", "e.g. London", "Try: Tokyo", "What's the weather?"];
+    let i = 0;
+    const input = document.querySelector("input");
+    const interval = setInterval(() => {
+      input.placeholder = phrases[i % phrases.length];
+      i++;
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="app">
@@ -33,7 +55,6 @@ function App() {
       <div className="input-group">
         <input
           type="text"
-          placeholder="Enter city name"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
